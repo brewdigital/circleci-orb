@@ -1,14 +1,14 @@
 {
   "name": "circleci-orb",
-  "version": "1.26.0",
+  "version": "1.27.0",
   "description": "Install, cache and run Cypress.io tests on CircleCI with minimal configuration.",
   "main": "index.js",
   "scripts": {
     "test": "npm run unit",
-    "orb:namespace": "circleci namespace create cypress-io github cypress-io",
+    "orb:namespace": "circleci namespace create brewdigital github brewdigital",
     "orb:validate": "circleci orb validate src/orb.yml",
-    "orb:create": "circleci orb create cypress-io/cypress",
-    "orb:list": "circleci orb list cypress-io",
+    "orb:create": "circleci orb create brewdigital/cypress",
+    "orb:list": "circleci orb list brewdigital",
     "preorb:publish": "npm run orb:validate",
     "orb:publish": "node ./scripts/publish",
     "orb:publish:dev": "node ./scripts/publish --dev",
@@ -26,15 +26,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cypress-io/circleci-orb.git"
+    "url": "git+https://github.com/brewdigital/circleci-orb.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cypress-io/circleci-orb/issues"
+    "url": "https://github.com/brewdigital/circleci-orb/issues"
   },
-  "homepage": "https://github.com/cypress-io/circleci-orb#readme",
+  "homepage": "https://github.com/brewdigital/circleci-orb#readme",
   "devDependencies": {
     "@types/common-tags": "1.8.0",
     "@types/node": "10.17.25",

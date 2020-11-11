@@ -2,7 +2,6 @@ import test from 'ava'
 import { stripIndent } from 'common-tags'
 import { effectiveConfig } from '../scripts/utils'
 
-// https://github.com/cypress-io/circleci-orb/issues/266
 test('build step works after attaching workspace', async (t) => {
   // we want to attach the workspace, probably after a shared install job
   // and build the application - and the effective config

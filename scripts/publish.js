@@ -14,7 +14,7 @@ const getPackageVersion = () => {
 }
 
 const loadNameAndVersion = () => {
-  const namespace = 'cypress-io'
+  const namespace = 'brewdigital'
   const orbName = 'cypress'
 
   let name

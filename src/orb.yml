@@ -8,6 +8,9 @@ display:
   source_url: https://github.com/cypress-io/circleci-orb
   home_url: https://www.cypress.io
 
+orbs:
+  slack: circleci/slack@3.4.2
+
 #
 # See https://www.cypress.io/
 #
@@ -535,6 +538,16 @@ jobs:
         type: string
         default: ''
 
+      success-message:
+        description: Slack message to send when successful build
+        type: string
+        default: ':white_check_mark: Successfully ran Cypress tests'
+
+      failure-message:
+        description: Slack message to send when build fails
+        type: string
+        default: ':warning: Error running Cypress tests :warning:'
+
     executor: <<parameters.executor>>
     parallelism: <<parameters.parallelism>>
 
@@ -750,6 +763,14 @@ jobs:
           appropriate checksum. (i.e. `cache-key: 'cache-{{ arch }}-{{ .Branch }}-{{ checksum "frontend/package.json" }}'`)
         type: string
         default: ''
+      success-message:
+        description: Slack message to send when successful build
+        type: string
+        default: ':white_check_mark: Successfully ran build command'
+      failure-message:
+        description: Slack message to send when build fails
+        type: string
+        default: ':warning: Error running build command :warning:'
     description: |
       Checks out code, installs dependencies, attaches code to the workspace for the future jobs
       to use (usually `cypress/run` follows the install step).
@@ -775,6 +796,9 @@ jobs:
                       command: << parameters.build >>
                 working_directory: << parameters.working_directory >>
                 cache-key: << parameters.cache-key >>
+            - slack/status:
+                success_message: << parameters.success-message >>
+                failure_message: << parameters.failure-message >>
       - unless:
           condition: << parameters.build >>
           steps:
