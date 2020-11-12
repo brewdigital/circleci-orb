@@ -5,7 +5,7 @@ description: |
   If recording on the dashboard, set `CYPRESS_RECORD_KEY` as CI environment variable.
 
 display:
-  source_url: https://github.com/cypress-io/circleci-orb
+  source_url: https://github.com/brewdigital/circleci-orb
   home_url: https://www.cypress.io
 
 orbs:
@@ -771,6 +771,10 @@ jobs:
         description: Slack message to send when build fails
         type: string
         default: ':warning: Error running build command :warning:'
+      timeout:
+        description: Optional timeout for running tests
+        type: string
+        default: 10m
     description: |
       Checks out code, installs dependencies, attaches code to the workspace for the future jobs
       to use (usually `cypress/run` follows the install step).
@@ -794,6 +798,7 @@ jobs:
                   - run:
                       name: 'Build'
                       command: << parameters.build >>
+                      no_output_timeout: << parameters.timeout >>
                 working_directory: << parameters.working_directory >>
                 cache-key: << parameters.cache-key >>
             - slack/status:

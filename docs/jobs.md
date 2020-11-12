@@ -33,6 +33,8 @@ Public jobs defined in this orb that your config workflow can use. See [examples
      - timeout
      - config-file
      - config
+     - success-message
+     - failure-message
     
  - [install](#install)
      - executor
@@ -44,6 +46,8 @@ Public jobs defined in this orb that your config workflow can use. See [examples
      - install-command
      - verify-command
      - working_directory
+     - success-message
+     - failure-message
     
 
 ## run
@@ -154,6 +158,17 @@ type: executor
 
 
 default: `base-10`
+
+
+**`failure-message`**
+
+> Slack message to send when build fails
+
+
+type: string
+
+
+default: `:warning: Error running Cypress tests :warning:`
 
 
 **`group`**
@@ -275,6 +290,17 @@ type: boolean
 default: `false`
 
 
+**`success-message`**
+
+> Slack message to send when successful build
+
+
+type: string
+
+
+default: `:white_check_mark: Successfully ran Cypress tests`
+
+
 **`tags`**
 
 > Comma-separated tags to send to the dashboard. Requires `record: true`
@@ -371,6 +397,17 @@ type: executor
 default: `base-10`
 
 
+**`failure-message`**
+
+> Slack message to send when build fails
+
+
+type: string
+
+
+default: `:warning: Error running build command :warning:`
+
+
 **`install-command`**
 
 > Overrides the default NPM or Yarn command
@@ -400,6 +437,17 @@ type: steps
 
 
 default: ``
+
+
+**`success-message`**
+
+> Slack message to send when successful build
+
+
+type: string
+
+
+default: `:white_check_mark: Successfully ran build command`
 
 
 **`verify-command`**
