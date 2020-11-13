@@ -645,6 +645,9 @@ jobs:
                 command: <<parameters.command>>
                 no_output_timeout: <<parameters.timeout>>
                 working_directory: << parameters.working_directory >>
+            - slack/status:
+                success_message: << parameters.success-message >>
+                failure_message: << parameters.failure-message >>
 
       - unless:
           condition: <<parameters.command>>

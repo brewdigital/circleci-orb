@@ -48,6 +48,7 @@ Public jobs defined in this orb that your config workflow can use. See [examples
      - working_directory
      - success-message
      - failure-message
+     - timeout
     
 
 ## run
@@ -448,6 +449,17 @@ type: string
 
 
 default: `:white_check_mark: Successfully ran build command`
+
+
+**`timeout`**
+
+> Optional timeout for running tests
+
+
+type: string
+
+
+default: `10m`
 
 
 **`verify-command`**
