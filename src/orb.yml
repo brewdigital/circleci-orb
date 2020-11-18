@@ -9,7 +9,7 @@ display:
   home_url: https://www.cypress.io
 
 orbs:
-  slack: circleci/slack@3.4.2
+  slack: circleci/slack@4.1.1
 
 #
 # See https://www.cypress.io/
@@ -645,9 +645,42 @@ jobs:
                 command: <<parameters.command>>
                 no_output_timeout: <<parameters.timeout>>
                 working_directory: << parameters.working_directory >>
-            - slack/status:
-                success_message: << parameters.success-message >>
-                failure_message: << parameters.failure-message >>
+            - slack/notify:
+                event: pass
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "<< parameters.success-message >>",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                branch_pattern: master
+            - slack/notify:
+                event: fail
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "<< parameters.failure-message >>",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                branch_pattern: master
 
       - unless:
           condition: <<parameters.command>>
@@ -804,9 +837,42 @@ jobs:
                       no_output_timeout: << parameters.timeout >>
                 working_directory: << parameters.working_directory >>
                 cache-key: << parameters.cache-key >>
-            - slack/status:
-                success_message: << parameters.success-message >>
-                failure_message: << parameters.failure-message >>
+            - slack/notify:
+                event: pass
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "<< parameters.success-message >>",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                branch_pattern: master
+            - slack/notify:
+                event: fail
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "<< parameters.failure-message >>",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                branch_pattern: master
       - unless:
           condition: << parameters.build >>
           steps:
