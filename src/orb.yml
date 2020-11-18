@@ -547,6 +547,11 @@ jobs:
         description: Slack message to send when build fails
         type: string
         default: ':warning: Error running Cypress tests :warning:'
+      
+      slack-branch:
+        description: The branch to send the Slack status message
+        type: string
+        default: 'master'
 
     executor: <<parameters.executor>>
     parallelism: <<parameters.parallelism>>
@@ -662,7 +667,7 @@ jobs:
                       }
                     ]
                   }
-                branch_pattern: master
+                branch_pattern: << parameters.slack-branch >>
             - slack/notify:
                 event: fail
                 custom: |
@@ -680,7 +685,7 @@ jobs:
                       }
                     ]
                   }
-                branch_pattern: master
+                branch_pattern: << parameters.slack-branch >>
 
       - unless:
           condition: <<parameters.command>>
@@ -807,6 +812,10 @@ jobs:
         description: Slack message to send when build fails
         type: string
         default: ':warning: Error running build command :warning:'
+      slack-branch:
+        description: The branch to send the Slack status message
+        type: string
+        default: 'master'
       timeout:
         description: Optional timeout for running tests
         type: string
@@ -854,7 +863,7 @@ jobs:
                       }
                     ]
                   }
-                branch_pattern: master
+                branch_pattern: << parameters.slack-branch >>
             - slack/notify:
                 event: fail
                 custom: |
@@ -872,7 +881,7 @@ jobs:
                       }
                     ]
                   }
-                branch_pattern: master
+                branch_pattern: << parameters.slack-branch >>
       - unless:
           condition: << parameters.build >>
           steps:
