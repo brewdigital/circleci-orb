@@ -663,12 +663,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "text": [
-                          {
-                            "type": "mrkdwn",
-                            "text": "<< parameters.success-message >>"
-                          }
-                        ]
+                        "text": {
+                          "type": "mrkdwn",
+                          "text": "<< parameters.success-message >>"
+                        }
                       }
                     ]
                   }
@@ -681,12 +679,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "text": [
-                          {
-                            "type": "mrkdwn",
-                            "text": "<< parameters.failure-message >>"
-                          }
-                        ]
+                        "text": {
+                          "type": "mrkdwn",
+                          "text": "<< parameters.failure-message >>"
+                        }
                       }
                     ]
                   }
@@ -863,12 +859,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "text": [
-                          {
-                            "type": "mrkdwn",
-                            "text": "<< parameters.success-message >>"
-                          }
-                        ]
+                        "text": {
+                          "type": "mrkdwn",
+                          "text": "<< parameters.success-message >>"
+                        }
                       }
                     ]
                   }
@@ -881,12 +875,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "text": [
-                          {
-                            "type": "mrkdwn",
-                            "text": "<< parameters.failure-message >>"
-                          }
-                        ]
+                        "text": {
+                          "type": "mrkdwn",
+                          "text": "<< parameters.failure-message >>"
+                        }
                       }
                     ]
                   }
