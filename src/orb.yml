@@ -553,6 +553,11 @@ jobs:
         type: string
         default: 'master'
 
+      slack-channel:
+        description: The channel to send the Slack status message
+        type: string
+        default: ''
+
     executor: <<parameters.executor>>
     parallelism: <<parameters.parallelism>>
 
@@ -652,6 +657,7 @@ jobs:
                 working_directory: << parameters.working_directory >>
             - slack/notify:
                 event: pass
+                channel: << parameters.slack-channel >>
                 custom: |
                   {
                     "blocks": [
@@ -670,6 +676,7 @@ jobs:
                 branch_pattern: << parameters.slack-branch >>
             - slack/notify:
                 event: fail
+                channel: << parameters.slack-channel >>
                 custom: |
                   {
                     "blocks": [
@@ -816,6 +823,10 @@ jobs:
         description: The branch to send the Slack status message
         type: string
         default: 'master'
+      slack-channel:
+        description: The channel to send the Slack status message
+        type: string
+        default: ''
       timeout:
         description: Optional timeout for running tests
         type: string
@@ -848,6 +859,7 @@ jobs:
                 cache-key: << parameters.cache-key >>
             - slack/notify:
                 event: pass
+                channel: << parameters.slack-channel >>
                 custom: |
                   {
                     "blocks": [
@@ -866,6 +878,7 @@ jobs:
                 branch_pattern: << parameters.slack-branch >>
             - slack/notify:
                 event: fail
+                channel: << parameters.slack-channel >>
                 custom: |
                   {
                     "blocks": [

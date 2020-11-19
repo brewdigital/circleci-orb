@@ -35,6 +35,7 @@ Public jobs defined in this orb that your config workflow can use. See [examples
      - config
      - success-message
      - failure-message
+     - slack-branch
     
  - [install](#install)
      - executor
@@ -48,6 +49,7 @@ Public jobs defined in this orb that your config workflow can use. See [examples
      - working_directory
      - success-message
      - failure-message
+     - slack-branch
      - timeout
     
 
@@ -262,6 +264,17 @@ type: boolean
 default: `false`
 
 
+**`slack-branch`**
+
+> The branch to send the Slack status message
+
+
+type: string
+
+
+default: `master`
+
+
 **`spec`**
 
 > Spec pattern to use to run only some test files, passed as `--spec ...` CLI argument.
@@ -438,6 +451,17 @@ type: steps
 
 
 default: ``
+
+
+**`slack-branch`**
+
+> The branch to send the Slack status message
+
+
+type: string
+
+
+default: `master`
 
 
 **`success-message`**
