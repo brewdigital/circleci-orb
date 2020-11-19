@@ -663,11 +663,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
+                        "text": [
                           {
-                            "type": "plain_text",
-                            "text": "<< parameters.success-message >>",
-                            "emoji": true
+                            "type": "mrkdwn",
+                            "text": "<< parameters.success-message >>"
                           }
                         ]
                       }
@@ -682,11 +681,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
+                        "text": [
                           {
-                            "type": "plain_text",
-                            "text": "<< parameters.failure-message >>",
-                            "emoji": true
+                            "type": "mrkdwn",
+                            "text": "<< parameters.failure-message >>"
                           }
                         ]
                       }
@@ -865,11 +863,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
+                        "text": [
                           {
-                            "type": "plain_text",
-                            "text": "<< parameters.success-message >>",
-                            "emoji": true
+                            "type": "mrkdwn",
+                            "text": "<< parameters.success-message >>"
                           }
                         ]
                       }
@@ -884,11 +881,10 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
+                        "text": [
                           {
-                            "type": "plain_text",
-                            "text": "<< parameters.failure-message >>",
-                            "emoji": true
+                            "type": "mrkdwn",
+                            "text": "<< parameters.failure-message >>"
                           }
                         ]
                       }
